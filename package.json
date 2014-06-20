@@ -1,0 +1,11 @@
+{
+  "name": "Yo-yo-bot",
+  "description": "A Twitter bot that spreads the yo yo love around",
+  "version": "0.0.1",
+  "dependencies": {
+    "twit": "*",
+    "mongodb": "~1.4.7",
+    "underscore.string": "~2.3.3",
+    "underscore": "~1.6.0"
+  }
+}
