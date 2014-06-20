@@ -10,10 +10,6 @@ Helper.prototype.error = function(message) {
 	console.error("Yo Yo bot: [ERROR] " + message);
 };
 
-Helper.prototype.error = function(message) {
-	console.error("Yo Yo bot: [ERROR] " + message);
-};
-
 Helper.prototype.formatTwitterHandle = function(twitter_handle) {
 	if (twitter_handle[0] != "@") {
 		twitter_handle = "@" + twitter_handle;
