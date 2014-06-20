@@ -36,8 +36,8 @@ YoYoBot.prototype.replyWithInstructions = function(to, callback) {
   };
 
   if (typeof callback == 'undefined') {
-    callback = function() {
-      helper.log("Tweeting instructions to " + to)
+    callback = function(err, data, response) {
+      helper.log("Tweeted instructions to " + to + "\nResponse: " + data);
     }
   };
 
@@ -56,8 +56,8 @@ YoYoBot.prototype.replyWithInvalid = function(to, callback) {
   };
 
   if (typeof callback == 'undefined') {
-    callback = function() {
-      helper.log("Tweeting with invalid tweet to " + to)
+    callback = function(err, data, response) {
+      helper.log("Tweeted invalid tweet message to " + to + "\nResponse: " + data);
     }
   };
 
@@ -71,8 +71,8 @@ YoYoBot.prototype.replyWithYoYoTweet = function(to, from, callback) {
   var yoYoTweet = "Yo Yo " + helper.formatTwitterHandle(to) + " from " + helper.formatTwitterHandle(from);
 
   if (typeof callback == 'undefined') {
-    callback = function() {
-      helper.log("Tweeting Yo Yo to " + to)
+    callback = function(err, data, response) {
+      helper.log("Tweeted Yo Yo to " + to + "\nResponse: " + data);
     }
   };
 
