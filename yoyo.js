@@ -15,10 +15,6 @@ var helper = new Helper();
 
 helper.log('Running....');
 
-var interval = config.tweet_interval;
-
-helper.log('Executing code every ' + interval/1000 + " seconds");
-  
 var stream = bot.twit.stream('user', { with: 'user' })
 
 stream.on('connected', function (response) {
@@ -27,13 +23,21 @@ stream.on('connected', function (response) {
 
 stream.on('disconnect', function (disconnectMessage) {
   helper.log("[DISCONNECTED] " + disconnectMessage);
+
+  // Let's reconnect to the stream after a certain time
+  setTimeout(function(){
+    helper.log("[CONNECTING] Connecting to stream");
+    stream.start();
+
+  }, config.restart_stream_after);
+
 });
 
 stream.on('tweet', function(tweet){
   var user = tweet.user;
 
   if (user) {
-    var user_screen_name = user.screen_name;
+    var user_screen_name = helper.formatTwitterHandle(user.screen_name);
     var tweet_text = helper.removeHandlerFromTweet(config.bot_handle, tweet.text);
 
     helper.log("Got tweet with text: " + tweet_text + ". From: " + user_screen_name);
