@@ -1,5 +1,5 @@
 {
-  "name": "Yo-yo-bot",
+  "name": "Yo_Yo_bot",
   "description": "A Twitter bot that spreads the yo yo love around",
   "version": "0.0.1",
   "dependencies": {
@@ -7,5 +7,25 @@
     "mongodb": "~1.4.7",
     "underscore.string": "~2.3.3",
     "underscore": "~1.6.0"
-  }
+  },
+  "main": "yoyo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node yoyo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gabceb/yo_yo_bot.git"
+  },
+  "keywords": [
+    "yo",
+    "yo_yo",
+    "twitter_bot"
+  ],
+  "author": "Gabriel Cebrian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabceb/yo_yo_bot/issues"
+  },
+  "homepage": "https://github.com/gabceb/yo_yo_bot"
 }
