@@ -5,9 +5,9 @@ module.exports = function(){
   {
   	case 'production':
 		config = {
-  			tweet_interval: 60000,
+  			restart_stream_after: 60000,
         abuse_interval: 60000,
-        check_abuse: true,
+        check_abuse: false,
         bot_handle: "@Yo_Yo_bot",
   			mongodb_user: 'PRODUCTION_S3_SECRET',
   			mongodb_password: 'PRODUCTION_BUCKET',
@@ -22,9 +22,9 @@ module.exports = function(){
   		break;
     case 'development':
     	config = {
-  			tweet_interval: 60000,
+  			restart_stream_after: 60000,
         abuse_interval: 60000,
-        check_abuse: true,
+        check_abuse: false,
         bot_handle: "@Yo_Yo_bot",
         mongodb_user: 'PRODUCTION_S3_SECRET',
         mongodb_password: 'PRODUCTION_BUCKET',
