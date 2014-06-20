@@ -8,10 +8,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development"
 var Bot = require('./bot/yoyobot'),
     config = require('./config')(),
     Helper = require('./bot/helper'),
-    _s = require('underscore.string');
+    _s = require('underscore.string'),
+    express = require('express');
 
 var bot = new Bot(config);
 var helper = new Helper();
+var app = express();
 
 helper.log('Running....');
 
@@ -60,7 +62,13 @@ stream.on('tweet', function(tweet){
   };
 });
 
-function handleError(err) {
-  console.error('response status:', err.statusCode);
-  console.error('data:', err.data);
-}
+app.set('port', (process.env.PORT || 3000));
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function(request, response) {
+  response.send('Hello from Yo Yo!');
+});
+
+app.listen(app.get('port'), function() {
+  helper.log("Yo Yo app is running at :" + app.get('port'));
+});
